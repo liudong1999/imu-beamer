@@ -1,0 +1,36 @@
+--- a/collegebeamer.sty	2026-10-29 13:06:38
++++ b/collegebeamer.sty	2026-10-29 13:06:38
+@@ -240,6 +240,13 @@
+   \renewcommand{\backgroundPath}{src/HUST/background.pdf}  % path to the background image
+ }
+ 
++\DeclareOption{imu}{
++    \renewcommand{\maincolorRGB}{0, 93, 140}  % IMU blue, sampled from the university emblem
++    \renewcommand{\colorlogoPath}{src/IMU/color-logo.png}
++    \renewcommand{\translogoPath}{src/IMU/trans-logo.png}
++    \renewcommand{\backgroundPath}{src/IMU/background.png}
++}
++
+ \DeclareOption{whu}{
+     \renewcommand{\maincolorRGB}{17, 87, 64}
+     \renewcommand{\colorlogoPath}{src/WHU/color-logo.png}
+--- a/README.md	2026-10-29 13:06:38
++++ b/README.md	2026-10-29 13:06:38
+@@ -35,6 +35,7 @@
+ | **ZAFU — Zhejiang A&F University**<br>浙江农林大学<br>[Open in Overleaf](https://www.overleaf.com/latex/templates/zafu-beamer-theme-beta/rcxzphbhnddf) | `zafu` | [ke1ewang](https://github.com/ke1ewang) | <img src="/gallery/ZAFU.png?raw=true" alt="ZAFU template preview" width="500"> |
+ | **DGUT — Dongguan University of Technology**<br>东莞理工学院 | `dgut` | [Penn Lam](https://github.com/Penn-Lam) | <img src="/gallery/DGUT.png?raw=true" alt="DGUT template preview" width="500"> |
+ | **SAES — Shenzhen Academy of Environmental Sciences**<br>深圳环境科学院<br>[Open in Overleaf](https://www.overleaf.com/latex/templates/shen-zhen-huan-jing-ke-xue-yuan-saes-beamer-zhu-ti/gqfgpdwcrcpt) | `saes` | [liu-qilong](https://github.com/liu-qilong) | <img src="/gallery/SAES.png?raw=true" alt="SAES template preview" width="500"> |
++| **IMU — Inner Mongolia University**<br>内蒙古大学 | `imu` | [your-github-handle](https://github.com/your-github-handle) | <img src="/gallery/IMU.png?raw=true" alt="IMU template preview" width="500"> |
+ 
+ Some early themes are also available on Overleaf through the links above. Overleaf no longer accepts institution-specific templates from unofficial accounts, so newer community themes are distributed through this repository.
+ 
+--- a/pre.tex	2026-10-29 13:06:38
++++ b/pre.tex	2026-10-29 13:06:38
+@@ -24,6 +24,7 @@
+ % [njau]   % 南京农业大学 (NJAU)
+ % [hust]   % 华中科技大学（HUST）
+ % [whu]    % 武汉大学 (WHU)
++% [imu]    % 内蒙古大学（IMU）
+ % [scnu]   % 华南师范大学 (SCNU)
+ % [bjut]   % 北京工业大学（BJUT）
+ % [zuel]   % 中南财经政法大学 (ZUEL)

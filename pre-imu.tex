@@ -1,0 +1,95 @@
+% 内蒙古大学 Beamer 主题示例 / Inner Mongolia University theme demo
+% 编译： latexmk -xelatex -interaction=nonstopmode pre-imu.tex
+\documentclass[aspectratio=169]{beamer}
+% 中文要用 XeLaTeX；英文可换 [imu,en] 并用 pdfLaTeX
+\usepackage[imu,zh]{collegebeamer}
+
+\title{内蒙古大学 Beamer 主题}
+\subtitle{使用 \LaTeX{} 制作学术报告}
+\author{刘东}
+\institute{内蒙古大学}
+\date{2026年10月29日}
+
+\begin{document}
+
+\maketitle
+
+\section{简介}
+\subsection{模板说明}
+
+\begin{frame}[fragile]{内蒙古大学视觉形象}
+    \begin{itemize}
+        \item 主题色取自校徽蓝：RGB(0,\,93,\,140)，见 \verb|\maincolorRGB|
+        \item 左上角为校徽标牌，节页与问答页自动切换为反白版本
+        \item 标题页背景使用内大官网线描纹样（主楼穹顶、蒙古文书法、马头琴、和平鸽等）
+        \item 纹样按 16\% 透明度的校徽蓝着色，竖排贴右；另附压色照片版与线描立面版可切换
+    \end{itemize}
+    \vspace{1em}
+    \begin{block}{最小用法}
+        \verb|\usepackage[imu,zh]{collegebeamer}|，然后用 XeLaTeX 编译。
+    \end{block}
+\end{frame}
+
+\begin{frame}[fragile]{数学与列表}
+    \begin{itemize}
+        \item 半狄拉克色散可以用一个两带模型描述：
+              \begin{equation*}
+                  H = \begin{pmatrix}
+                      0 & -icp_x + \dfrac{p_y^2}{2m} \\[2mm]
+                      icp_x + \dfrac{p_y^2}{2m} & 0
+                  \end{pmatrix}
+              \end{equation*}
+        \item 本模板不改变 Beamer 的数学排版，全部 \verb|amsmath| 功能可用
+        \item 强调色、块颜色、列表符号都由主题统一给出
+    \end{itemize}
+\end{frame}
+
+\section{使用}
+\subsection{代码与表格}
+
+\begin{frame}[fragile]{代码块}
+    \begin{block}{一个 Python 例子}
+        \begin{lstlisting}[language=Python]
+def berry_curvature(H, k):
+    """Berry curvature of a two-band model."""
+    evals, evecs = np.linalg.eigh(H(k))
+    u = evecs[:, 0]
+    du = np.gradient(u, axis=0)
+    return -2 * np.imag(np.vdot(du, u))
+        \end{lstlisting}
+    \end{block}
+    \begin{exampleblock}{提示}
+        含 \verb|lstlisting| 的帧需要加 \verb|[fragile]| 选项。
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{表格与分栏}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \begin{table}
+                \centering
+                \begin{tabular}{lcc}
+                    \hline
+                    体系 & 带隙 & 迁移率 \\
+                    \hline
+                    石墨烯 & 0 & 高 \\
+                    硅烯 & 1.5 meV & 中 \\
+                    半狄拉克 & 0 & 各向异性 \\
+                    \hline
+                \end{tabular}
+                \caption{示例表格}
+            \end{table}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \begin{itemize}
+                \item 两栏布局使用标准 \verb|columns|
+                \item 块环境自动继承主题色
+                \item 页脚页码由主题提供
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\QApage
+
+\end{document}
